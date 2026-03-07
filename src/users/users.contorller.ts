@@ -45,6 +45,12 @@ export class UserController {
     @Res() res: any,
     @UploadedFile() file?: any,
   ) {
+    console.log(file?.path)
+    console.log("BODY:", body);
+console.log("FILE:", file);
+    if(!file?.path){
+      return res.json({message: "No Avatar Uploaded"});
+    }
     return this.userService.create(res,{
       username: body.username,
       email: body.email,
