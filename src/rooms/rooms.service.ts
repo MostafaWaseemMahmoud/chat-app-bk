@@ -65,7 +65,7 @@ async getUsersRooms(res, id) {
 }
 
 
-async sendMessage(res, roomId: string, message: string, email: string, userid) {
+async sendMessage(res, roomId: string, message: string, email: string, userid,date) {
   try {
     const allRooms = await this.roomsModel.find({ RoomId: roomId }).exec();
 
@@ -78,6 +78,7 @@ async sendMessage(res, roomId: string, message: string, email: string, userid) {
             room.Messages.push({
               sender_email: email,
               message: message,
+              date:date
             });
       
             await room.save(); // ✅ THIS IS IMPORTANT
@@ -85,6 +86,7 @@ async sendMessage(res, roomId: string, message: string, email: string, userid) {
             room.NewMessages.push({
               sender_email: email,
               message: message,
+              date:date
             });
       
             await room.save(); // ✅ THIS IS IMPORTANT

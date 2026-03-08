@@ -26,8 +26,8 @@ export class RoomsController {
 
        @Post("sendmessage/:rooomid/:userid")
 
-       sendMessage(@Param('rooomid') roomid,@Param('userid') userid, @Res() res,@Body("message") message,@Body("email") email){
-        return this.roomService.sendMessage(res,roomid,message,email,userid);
+       sendMessage(@Param('rooomid') roomid,@Param('userid') userid, @Res() res,@Body("message") message,@Body("email") email,@Body("date") date){
+        return this.roomService.sendMessage(res,roomid,message,email,userid,date);
        }
 
        @Post("makeasread/:rooomid/:userid")
