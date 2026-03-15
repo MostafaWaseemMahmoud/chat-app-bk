@@ -2,7 +2,7 @@ import { Options } from './../../node_modules/@types/validator/lib/isBoolean.d';
 import { Injectable } from '@nestjs/common';
 import * as nodemailer from 'nodemailer'
 import { ConfigService } from '@nestjs/config';
-import { sendEmailDto } from 'src/dto/email.dto';
+import { sendEmailDto } from '../dto/email.dto';
 @Injectable()
 export class EmailService {
     emailTransport() {
